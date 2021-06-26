@@ -26,7 +26,16 @@ export const App = () => {
     newTodos.splice(index, 1);
     setIncompleteTodos(newTodos);
   };
-  //未完了ステートから削除＋完了ステートへ移動
+  //未完了ステートから削除＋完了ステートへ追加
+  const onClickComplete = (index) => {
+    //未完了ステートから削除
+    const newIncompleteTodos = [...incompleteTodos];
+    newIncompleteTodos.splice(index, 1);
+    setIncompleteTodos(newIncompleteTodos);
+    //完了ステートへ追加
+    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
+    setCompleteTodos(newCompleteTodos);
+  };
 
   return (
     <>
